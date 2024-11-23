@@ -1,0 +1,16 @@
+[
+  {
+    "account": {
+      "username": "silviugirbacea@gmail.com",
+      "password": "arolacurs98@&"
+    },
+    "loginErr": "Invalid username or password!"
+  },
+  {
+    "account": {
+      "username": "silviugirbacea@gmail.com",
+      "password": "Parolacurs98@&"
+    },
+    "loginErr": ""
+  }
+]
