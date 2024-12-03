@@ -1,16 +1,26 @@
 [
   {
     "account": {
-      "username": "silviugirbacea@gmail.com",
-      "password": "arolacurs98@&"
+      "username": "silviugirbacea5@gmail.com"
     },
-    "loginErr": "Invalid username or password!"
+    "registrationMessage": "Registration Successful!"
   },
   {
     "account": {
-      "username": "silviugirbacea@gmail.com",
-      "password": "Parolacurs98@&"
+      "username": "user@userrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
     },
-    "loginErr": ""
+    "registrationMessage": "Eroare: Te rog sa introduci o adresa de email valida."
+  },
+  {
+    "account": {
+      "username": "0@yahoo.com"
+    },
+    "registrationMessage": "Eroare:Te rog sa introduci un nume de utilizator valid pentru cont."
+  },
+  {
+    "account": {
+      "username": "silviugirbacea@gmail.com"
+    },
+    "registrationMessage": "Eroare: Este deja înregistrat un cont cu silviugirbacea@gmail.com."
   }
 ]

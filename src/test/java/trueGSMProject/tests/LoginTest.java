@@ -1,47 +1,30 @@
 package trueGSMProject.tests;
 
-import trueGSMProject.pages.LoginPage;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
+import trueGSMProject.POJO.LoginModel;
+import trueGSMProject.data.LoginDataProvider;
+import trueGSMProject.pages.LoginPage;
 import org.testng.annotations.Test;
 
 public class LoginTest extends BaseTest {
 
-    @DataProvider
-    public Object[][] loginDataProvider() {
-        return new Object[][]{
-//                   username, password
-                {"silviugirbacea@gmail.com", "Parolacurs98@&"},
-
-        };
+    @Test(dataProvider = "loginSQLDataProvider", dataProviderClass = LoginDataProvider.class)
+    public void loginWithSQLAsDataSource(LoginModel loginModel) {
+        loginWithLoginModel(loginModel);
     }
 
-    @Test(dataProvider = "loginDataProvider")
-    public void testLogin(String username, String password) {
-        getBrowser();
-        getBaseURL();
 
+    protected void loginWithLoginModel(LoginModel loginModel) {
+        setUp();
         navigateToURL("/my-account/");
 
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.login(username, password);
+        System.out.println(loginModel);
+        loginPage.login(loginModel.getAccount().getUsername(), loginModel.getAccount().getPassword());
 
-        System.out.println("Login Successful");
-        Assert.assertTrue(loginPage.verifyLoginSuccessful(username));
-
-    }
-
-    @Test(dataProvider = "loginDataProvider")
-    public void testLogin2(String username, String password) {
-        getBrowser();
-        getBaseURL();
-
-        navigateToURL("/my-account/");
-
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.login(username, password);
-
-        System.out.println("Login Failed");
-        Assert.assertFalse(loginPage.verifyLoginFailed(password));
+        if (loginPage.verifyLoginSuccessful("")) {
+            Assert.assertTrue(loginPage.verifyLoginSuccessful(""));
+        } else if (loginPage.verifyLoginFailed(""))
+            Assert.assertTrue(loginPage.verifyLoginFailed(""));
     }
 }

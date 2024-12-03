@@ -1,11 +1,15 @@
-package trueGSMProject.ObjectModels;
+package trueGSMProject.POJO;
 
 public class AccountModel {
     private String username;
     private String password;
 
+    public AccountModel() {
+    }
 
     public AccountModel(String username, String password) {
+        this.username = username;
+        this.password = password;
     }
 
     public String getUsername() {

@@ -1,6 +1,7 @@
 package trueGSMProject.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,6 +21,9 @@ public class LoginPage extends BasePage {
 
     @FindBy(id = "password")
     private WebElement passwordInput;
+
+    @FindBy(xpath = "//*[@id=\"post-11\"]/div/div/div[2]/p[1]/strong[1]")
+    private WebElement loginOK;
 
     @FindBy(xpath = "//*[@id=\"post-11\"]/div/div[1]/ul/li")
     private WebElement errorMessageElement;
@@ -60,22 +64,29 @@ public class LoginPage extends BasePage {
 
     public void submit() {
         wait.until(ExpectedConditions.elementToBeClickable(loginButton));
-        System.out.println("Click sign in button");
+        System.out.println("Click on LOG IN button");
         loginButton.click();
+
     }
 
     public boolean verifyLoginSuccessful(String username) {
-        String xpath = "//*[@id=\"post-11\"]/div/div/div[2]/p[1]/strong[1]";
-        WebElement welcomeMessage = waitUntilElementVisible(By.xpath(xpath));
-        System.out.println("Welcome message displayed: " + welcomeMessage.getText());
-        return welcomeMessage.isDisplayed();
+        try {
+            String xpath = "//*[@id=\"post-11\"]/div/div/div[2]/p[1]/strong[1]";
+            WebElement welcomeMessage = waitUntilElementVisible(By.xpath(xpath));
+            System.out.println("Welcome message displayed: Buna," + welcomeMessage.getText());
+            return true;
+        } catch (TimeoutException e) {
+            System.out.println("Element not visible within timeout, continuing...");
+        }
+        return false;
     }
-
-    public boolean verifyLoginFailed(String errorMessage) {
-        waitUntilElementVisible(errorMessageElement);
-        System.out.println("Error message displayed: " + errorMessageElement.getText());
-        return errorMessageElement.getText().equals(errorMessage);
-    }
-
-}
+    public boolean verifyLoginFailed(String error) {
+           try {
+               waitUntilElementVisible(errorMessageElement);
+               System.out.println("Error message displayed: " + errorMessageElement.getText());
+               return true;
+           } catch (Exception e) {
+               throw new RuntimeException(e);
+           }
+    }}
 

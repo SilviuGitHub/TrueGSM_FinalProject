@@ -1,15 +1,15 @@
-package trueGSMProject.ObjectModels;
+package trueGSMProject.POJO;
 
 public class LoginModel {
     private AccountModel account;
-    private String loginErr;
+    private String loginMessage;
 
     public LoginModel() {
     }
 
-    public LoginModel(String username, String password, String loginErr) {
+    public LoginModel(String username, String password, String loginMessage) {
         this.account = new AccountModel(username, password);
-        this.loginErr = loginErr;
+        this.loginMessage = loginMessage;
     }
 
     public AccountModel getAccount() {
@@ -20,19 +20,19 @@ public class LoginModel {
         this.account = account;
     }
 
-    public String getLoginErr() {
-        return loginErr;
+    public String getLoginMessage() {
+        return loginMessage;
     }
 
-    public void setLoginErr(String loginErr) {
-        this.loginErr = loginErr;
+    public void setLoginMessage(String loginMessage) {
+        this.loginMessage = loginMessage;
     }
 
     @Override
     public String toString() {
         return "LoginModel value: {\n" +
                 "account:{\n username=" + account.getUsername() + ",\n password=" + account.getPassword() +
-                "\n}, \n loginErr='" + loginErr + '\n' +
+                "\n}, \n loginMessage=" + loginMessage + '\n' +
                 '}';
     }
 }

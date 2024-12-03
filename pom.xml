@@ -10,12 +10,22 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
-    <xmlSuite>runSuites/runSuitesWithParams.xml</xmlSuite>
+    <xmlSuite>runSuites/regression_run.xml</xmlSuite>
     <junitVersion>4.13.2</junitVersion>
     <testNgVersion>7.10.2</testNgVersion>
+    <commonIOVersion>2.17.0</commonIOVersion>
+    <seleniumVersion>4.23.1</seleniumVersion>
+    <glassfishVersion>4.0.5</glassfishVersion>
+    <jaxbImpl>4.0.5</jaxbImpl>
+    <jakartaXMLBind>4.0.2</jakartaXMLBind>
+    <javaxXML>2.3.1</javaxXML>
+    <openCSVVersion>5.9</openCSVVersion>
+    <mySQLConnector>8.0.33</mySQLConnector>
+    <poiVersion>5.2.3</poiVersion>
     <lombokVersion>1.18.34</lombokVersion>
     <extentReportVersion>5.1.2</extentReportVersion>
     <restAssuredVersion>5.5.0</restAssuredVersion>
+    <jacksonDatabind>2.17.2</jacksonDatabind>
   </properties>
 
   <dependencies>
@@ -36,7 +46,7 @@
     <dependency>
       <groupId>commons-io</groupId>
       <artifactId>commons-io</artifactId>
-      <version>2.17.0</version>
+      <version>${commonIOVersion}</version>
     </dependency>
 
 
@@ -44,7 +54,7 @@
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
-      <version>4.24.0</version>
+      <version>${seleniumVersion}</version>
     </dependency>
     <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
     <dependency>
@@ -57,58 +67,53 @@
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
-      <version>2.17.2</version>
+      <version>${jacksonDatabind}</version>
     </dependency>
 
     <!-- xml reader -->
     <dependency>
       <groupId>org.glassfish.jaxb</groupId>
       <artifactId>jaxb-runtime</artifactId>
-      <version>4.0.5</version>
+      <version>${glassfishVersion}</version>
     </dependency>
     <!-- xml reader -->
     <dependency>
       <groupId>jakarta.xml.bind</groupId>
       <artifactId>jakarta.xml.bind-api</artifactId>
-      <version>4.0.2</version>
+      <version>${jakartaXMLBind}</version>
     </dependency>
     <!-- xml reader -->
     <dependency>
       <groupId>javax.xml.bind</groupId>
       <artifactId>jaxb-api</artifactId>
-      <version>2.3.1</version>
+      <version>${javaxXML}</version>
     </dependency>
     <!-- xml reader -->
     <dependency>
       <groupId>com.sun.xml.bind</groupId>
       <artifactId>jaxb-impl</artifactId>
-      <version>4.0.5</version>
+      <version>${jaxbImpl}</version>
     </dependency>
     <!-- EXCEL Reader -->
     <dependency>
       <groupId>org.apache.poi</groupId>
       <artifactId>poi</artifactId>
-      <version>5.2.3</version>
+      <version>${poiVersion}</version>
     </dependency>
     <!--        CSV Reader-->
     <!-- https://mvnrepository.com/artifact/com.opencsv/opencsv -->
     <dependency>
       <groupId>com.opencsv</groupId>
       <artifactId>opencsv</artifactId>
-      <version>5.9</version>
+      <version>${openCSVVersion}</version>
     </dependency>
     <!-- sql  -->
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>8.0.33</version>
+      <version>${mySQLConnector}</version>
     </dependency>
 
-    <dependency>
-      <groupId>org.apache.poi</groupId>
-      <artifactId>poi-ooxml</artifactId>
-      <version>5.2.3</version>
-    </dependency>
 
     <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
     <dependency>

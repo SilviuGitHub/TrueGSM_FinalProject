@@ -12,7 +12,7 @@ public class CompatibilityTest {
     public void test01_GoogleChrome() {
         WebDriver driver = new ChromeDriver();
         driver.navigate().to("https://truegsm.ro/");
-        System.out.println("The page opens successfully in Chrome");
+        System.out.println("The page opened successfully in Chrome");
 
         driver.close();
     }
@@ -22,7 +22,7 @@ public class CompatibilityTest {
     public void test02_MozillaFirefox() {
         WebDriver driver = new FirefoxDriver();
         driver.navigate().to("https://truegsm.ro/");
-        System.out.println("The page opens successfully in Firefox");
+        System.out.println("The page opened successfully in Firefox");
 
         driver.close();
     }
@@ -31,7 +31,7 @@ public class CompatibilityTest {
     public void test03_MicrosoftEdge() {
         WebDriver driver = new EdgeDriver();
         driver.navigate().to("https://truegsm.ro/");
-        System.out.println("The page opens successfully in Edge");
+        System.out.println("The page opened successfully in Edge");
 
         driver.close();
     }
