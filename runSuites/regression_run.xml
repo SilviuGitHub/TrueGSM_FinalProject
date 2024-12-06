@@ -3,12 +3,9 @@
 <suite name="RegressionTests">
     <test name="TrueGSM_Project" thread-count="10">
         <classes>
-            <class name="trueGSMProject.tests.LoginTest">
-                <methods>
-                    <include name="loginTestValid"/>
-                    <include name="loginTestInvalid"/>
-                </methods>
-            </class> <!-- tests.LoginTest -->
+            <class name="trueGSMProject.tests.LoginTest"/>
+            <class name="trueGSMProject.tests.RegistrationTest"/>
+            <class name="trueGSMProject.tests.SearchTest"/>
         </classes>
     </test> <!-- TrueGSM_Project -->
 </suite> <!-- Default Suite -->

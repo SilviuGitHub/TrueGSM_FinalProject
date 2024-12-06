@@ -3,11 +3,7 @@
 <suite name="Smoke Tests">
     <test name="TrueGSM_Project" thread-count="10">
         <classes>
-            <class name="trueGSMProject.tests.LoginTest">
-                <methods>
-                    <include name="loginTestValid"/>
-                </methods>
-            </class> <!-- tests.LoginTest -->
+            <class name="trueGSMProject.tests.CompatibilityTest"/>
         </classes>
     </test> <!-- TrueGSM_Project -->
 </suite> <!-- Default Suite -->
