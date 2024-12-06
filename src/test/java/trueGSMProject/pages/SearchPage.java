@@ -1,11 +1,10 @@
 package trueGSMProject.pages;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import java.awt.*;
-import java.awt.event.KeyEvent;
+
 
 public class SearchPage extends BasePage {
 
@@ -35,16 +34,11 @@ public class SearchPage extends BasePage {
         this.acceptCookies();
         this.searchButton();
         this.searchInput(searchInput);
-        Robot robot = null;
-        try {
-            robot = new Robot();
-        } catch (AWTException e) {
-            throw new RuntimeException(e);
-        }
-        robot.keyPress(KeyEvent.VK_ENTER);
-        robot.keyRelease(KeyEvent.VK_ENTER);
+        Actions actions = new Actions(driver);
+        actions = actions.keyDown(Keys.ENTER);
+        actions.keyUp(Keys.ENTER);
+        actions.build().perform();
         System.out.println("Press Enter key after searchInput");
-        System.out.println(searchResults.getText() + " " + errorMessageElement.getText());
     }
 
     public void acceptCookies() {
@@ -67,4 +61,24 @@ public class SearchPage extends BasePage {
         searchInput.sendKeys(searchData);
     }
 
-}
+    public boolean verifySearhResultsInvalid(String searchinvalid) {
+        try{
+            waitUntilElementVisible(errorMessageElement);
+            System.out.println("Search results invalid: " + errorMessageElement.getText());
+            return true;
+        } catch (TimeoutException e) {
+            System.out.println("Element not visible within timeout, continuing...");
+        }
+        return false;
+    }
+
+    public boolean verifySearchResultsValid(String searchvalid) {
+        try{
+            String xpath = "/html/body/div[5]/div/main/div/div[2]/div[1]/nav/span[5]";
+            WebElement searchMessage = waitUntilElementVisible(By.xpath(xpath));
+            System.out.println("Search results valid: " + searchMessage.getText());
+            return true;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }}
